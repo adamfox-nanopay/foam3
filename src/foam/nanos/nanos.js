@@ -638,4 +638,6 @@ FOAM_FILES([
 
   //notification
   { name: "foam/nanos/crunch/TopLevelCapabilityStatusUpdateNotification" },
+
+  { name: "foam/nanos/om/OMRuleAction", flags: ['java'] }
 ]);
