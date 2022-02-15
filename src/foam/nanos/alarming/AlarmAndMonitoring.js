@@ -83,13 +83,14 @@ foam.CLASS({
               updateAlarm = true;
               report.setTimeoutCount(report.getTimeoutCount() + (int) timeout.getCount());
           }
-          if ( ! updateAlarm || (newAlarm && sentCount == responseCount) ) {
-            return;
-          }
-
+          
           float timeoutCount = timeout != null ? timeout.getCount() : 0;
           float sentCount = sentRequest != null ? sentRequest.getCount() : 0;
           float responseCount = receiveResponses != null ? receiveResponses.getCount() : 0;
+
+          if ( ! updateAlarm || (newAlarm && sentCount == responseCount) ) {
+            return;
+          }
 
           if ( timeoutCount > 0 && sentCount > 0  && (timeoutCount / sentCount) > (float) config.getTimeoutValue() / 100 ) {
             if ( ! alarm.getIsActive() || !( alarm.getReason() == AlarmReason.TIMEOUT) ) {
