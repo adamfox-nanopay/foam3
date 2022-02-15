@@ -83,7 +83,7 @@ foam.CLASS({
               updateAlarm = true;
               report.setTimeoutCount(report.getTimeoutCount() + (int) timeout.getCount());
           }
-          
+
           float timeoutCount = timeout != null ? timeout.getCount() : 0;
           float sentCount = sentRequest != null ? sentRequest.getCount() : 0;
           float responseCount = receiveResponses != null ? receiveResponses.getCount() : 0;
@@ -104,7 +104,6 @@ foam.CLASS({
             }
           } else {
             if ( alarm.getIsActive() ) {
-              sentRequest.
               report.setStartCount(0);
               report.setEndCount(0);
               report.setTimeoutCount(0);
